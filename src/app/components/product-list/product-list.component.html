@@ -16,14 +16,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
+                            <tr *ngFor="let product of data">
+                                <td>{{ product.nombre }}</td>
+                                <td>{{ product.categoria }}</td>
+                                <td>{{ product.ubicacion }}</td>
+                                <td>{{ product.precio | currency: 'USD' }}</td>
                                 <td>
-                                    <i class="fas fa-edit text-primary"></i>
-                                    <i class="fas fa-trash text-danger"></i>
+                                    <i [routerLink]="['/edit', product._id]" class="fas fa-edit text-primary"></i>
+                                    <i (click)="deleteProduct(product._id)" class="fas fa-trash text-danger"></i>
                                 </td>
                             </tr>
                         </tbody>
